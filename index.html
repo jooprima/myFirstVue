@@ -13,13 +13,32 @@
       </h1>
     </div>
 
+    <div id="example">
+      <p>Original Message : "{{ message }}"</p>
+      <p>Computed reserved message : "{{ reversedMessage }}"</p>
+    </div>
+
     <script>
       var app = new Vue({
         el: "#app",
         data: {
           name: "jooprima",
-        },
+        }
       });
+    </script>
+
+    <script>
+      var vm = new Vue({
+        el: '#example',
+        data:{
+          message: 'YOHANES PRIMA'
+        },
+        computed: {
+          reversedMessage: function(){
+            return this.message.split('').reverse().join('')
+          }
+        },
+      })
     </script>
   </body>
 </html>
